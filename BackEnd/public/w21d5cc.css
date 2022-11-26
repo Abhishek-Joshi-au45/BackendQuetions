@@ -1,0 +1,45 @@
+body{
+    background-color: aqua;
+}
+
+.sameCss{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+}
+
+#Index{
+background-color: yellowgreen;
+}
+
+#about{
+background-color: pink;
+}
+
+#Contact{
+background-color: yellow;
+}
+
+h1{
+    background-color: blue;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+h2{
+    background-color: blueviolet;
+}
+
+a{
+    background-color: red;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+p{
+    color: blue;
+}

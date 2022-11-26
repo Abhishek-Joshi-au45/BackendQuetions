@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+    <h1 class="container">Add Blog</h1>
+    <form method="post" action="/blogs" class="container">
+        <input type="text" name="title" class="input-group input-group-sm mb-3" placeholder="Enter title of the Page" required>
+        <input type="text" name="description" class="input-group input-group-sm mb-3" placeholder="Enter description" required>
+        <input type="text" name="content" class="input-group input-group-sm mb-3" placeholder="Enter Content" required>
+        <input type="text" name="createdBy" class="input-group input-group-sm mb-3" placeholder="CreatedBy" required>
+        <input type="text" name="isPrivate" class="input-group input-group-sm mb-3" placeholder="isPrivate" required>
+        <input type="date" name="createdAt" class="input-group input-group-sm mb-3" placeholder="date" required>
+              
+        <input type="submit" class="btn btn-primary" name="Submit">
+        </form>
+</body>
+</html>

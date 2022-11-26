@@ -1,0 +1,233 @@
+1 : Create db : =1 
+
+use newdb
+'switched to db newdb'
+
+
+
+2 : Create collection
+
+db.new
+newdb.new
+
+
+
+3 : Create documents
+
+db.new.insertOne({name :"Abhishek", address : "Agra" , state :"UP"})
+{ acknowledged: true,
+  insertedId: ObjectId("62ee1de83bf060c9887ad0f8") }
+
+
+db.new.insertMany({name:"Sabir", address :"Agra", state :"UP", country : "India"},{name : "ayush" , age : "25", address : "Delhi"})
+MongoInvalidArgumentError: Argument "docs" must be an array of documents
+db.new.insertMany([{name:"Sabir", address :"Agra", state :"UP", country : "India"},{name : "ayush" , age : "25", address : "Delhi"}])
+{ acknowledged: true,
+  insertedIds: 
+   { '0': ObjectId("62ee1ed43bf060c9887ad0f9"),
+     '1': ObjectId("62ee1ed43bf060c9887ad0fa") } }
+
+db.new.find()
+{ _id: ObjectId("62ee1de83bf060c9887ad0f8"),
+  name: 'Abhishek',
+  address: 'Agra',
+  state: 'UP' }
+{ _id: ObjectId("62ee1ed43bf060c9887ad0f9"),
+  name: 'Sabir',
+  address: 'Agra',
+  state: 'UP',
+  country: 'India' }
+{ _id: ObjectId("62ee1ed43bf060c9887ad0fa"),
+  name: 'ayush',
+  age: '25',
+  address: 'Delhi' }
+
+
+
+
+4 : Read documents
+db.new.findOne()
+{ _id: ObjectId("62ee1de83bf060c9887ad0f8"),
+  name: 'Abhishek',
+  address: 'Agra',
+  state: 'UP' }
+
+
+db.new.findone({name : "ayush"})
+TypeError: db.new.findone is not a function
+
+db.new.findOne()
+{ _id: ObjectId("62ee1de83bf060c9887ad0f8"),
+  name: 'Abhishek',
+  address: 'Agra',
+  state: 'UP' }
+
+db.new.findOne({age: '25'})
+{ _id: ObjectId("62ee1ed43bf060c9887ad0fa"),
+  name: 'ayush',
+  age: '25',
+  address: 'Delhi' }
+
+db.new.findOne({age: '25'},{name : "ayush"})
+{ _id: ObjectId("62ee1ed43bf060c9887ad0fa"), name: 'ayush' }
+
+db.new.find()
+{ _id: ObjectId("62ee1de83bf060c9887ad0f8"),
+  name: 'Abhishek',
+  address: 'Agra',
+  state: 'UP' }
+{ _id: ObjectId("62ee1ed43bf060c9887ad0f9"),
+  name: 'Sabir',
+  address: 'Agra',
+  state: 'UP',
+  country: 'India' }
+{ _id: ObjectId("62ee1ed43bf060c9887ad0fa"),
+  name: 'ayush',
+  age: '25',
+  address: 'Delhi' }
+
+db.new.find()
+{ _id: ObjectId("62ee1de83bf060c9887ad0f8"),
+  name: 'Abhishek',
+  address: 'Agra',
+  state: 'UP' }
+{ _id: ObjectId("62ee1ed43bf060c9887ad0f9"),
+  name: 'Sabir',
+  address: 'Agra',
+  state: 'UP',
+  country: 'India' }
+{ _id: ObjectId("62ee1ed43bf060c9887ad0fa"),
+  name: 'ayush',
+  age: '26',
+  address: 'Delhi' }
+  
+
+
+
+
+
+
+5 : Update documents
+
+db.new.updateOne({name: 'somesh'},{$set : {age : "20"}})
+{ acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0 }
+
+db.new.updateOne({name: 'ayush'}, {$set :{age : '26'}})
+{ acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0 }
+
+
+db.new.find()
+{ _id: ObjectId("62ee1de83bf060c9887ad0f8"),
+  name: 'Abhishek',
+  address: 'Agra',
+  state: 'UP' }
+{ _id: ObjectId("62ee1ed43bf060c9887ad0f9"),
+  name: 'Sabir',
+  address: 'Agra',
+  state: 'UP',
+  country: 'India' }
+{ _id: ObjectId("62ee1ed43bf060c9887ad0fa"),
+  name: 'ayush',
+  age: '26',
+  address: 'Delhi' }
+{ _id: ObjectId("62ee23103bf060c9887ad0fd"),
+  name: 'somesh',
+  age: '20',
+  address: 'Agra' }
+
+db.new.deleteOne({name: 'somesh'})
+{ acknowledged: true, deletedCount: 1 }
+
+db.new.find()
+{ _id: ObjectId("62ee1de83bf060c9887ad0f8"),
+  name: 'Abhishek',
+  address: 'Agra',
+  state: 'UP' }
+{ _id: ObjectId("62ee1ed43bf060c9887ad0f9"),
+  name: 'Sabir',
+  address: 'Agra',
+  state: 'UP',
+  country: 'India' }
+{ _id: ObjectId("62ee1ed43bf060c9887ad0fa"),
+  name: 'ayush',
+  age: '26',
+  address: 'Delhi' }
+
+db.new.updateOne({_id: ObjectId("62ee1ed43bf060c9887ad0fa"),{$unset : {age : 1}}})
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+
+db.new.updateOne({_id: ObjectId("62ee1ed43bf060c9887ad0fa")},{$unset : {age : 1}})
+{ acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0 }
+db.new.find()
+{ _id: ObjectId("62ee1de83bf060c9887ad0f8"),
+  name: 'Abhishek',
+  address: 'Agra',
+  state: 'UP' }
+{ _id: ObjectId("62ee1ed43bf060c9887ad0f9"),
+  name: 'Sabir',
+  address: 'Agra',
+  state: 'UP',
+  country: 'India' }
+{ _id: ObjectId("62ee1ed43bf060c9887ad0fa"),
+  name: 'ayush',
+  address: 'Delhi' }
+
+db.new.find()
+{ _id: ObjectId("62ee1de83bf060c9887ad0f8"),
+  name: 'Abhishek',
+  address: 'Agra',
+  state: 'UP' }
+{ _id: ObjectId("62ee1ed43bf060c9887ad0f9"),
+  name: 'Sabir',
+  address: 'Agra',
+  state: 'UP',
+  country: 'India' }
+{ _id: ObjectId("62ee1ed43bf060c9887ad0fa"),
+  name: 'ayush',
+  address: 'Delhi' }
+
+
+
+
+
+
+  6 : Delete documents
+
+db.new.deleteOne({name : 'somesh'})
+{ acknowledged: true, deletedCount: 0 }
+
+db.new.insertOne({name : 'somesh' , age : '22' ,address :"Agra"})
+{ acknowledged: true,
+  insertedId: ObjectId("62ee23103bf060c9887ad0fd") }
+
+db.new.find()
+{ _id: ObjectId("62ee1de83bf060c9887ad0f8"),
+  name: 'Abhishek',
+  address: 'Agra',
+  state: 'UP' }
+{ _id: ObjectId("62ee1ed43bf060c9887ad0f9"),
+  name: 'Sabir',
+  address: 'Agra',
+  state: 'UP',
+  country: 'India' }
+{ _id: ObjectId("62ee1ed43bf060c9887ad0fa"),
+  name: 'ayush',
+  age: '26',
+  address: 'Delhi' }
+{ _id: ObjectId("62ee23103bf060c9887ad0fd"),
+  name: 'somesh',
+  age: '22',
+  address: 'Agra' }
+

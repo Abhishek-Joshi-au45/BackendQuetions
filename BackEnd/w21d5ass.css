@@ -1,0 +1,30 @@
+#main{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    margin: 50px;
+    background-color: aqua;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+#currencyMainDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border : 3px solid;
+    margin: 10px;
+    padding: 10px;
+    
+}
+.currencySameClass{
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+}
+
+body{
+    background-color: yellowgreen;
+    font-weight: bold;
+    border: 5px solid red;
+}

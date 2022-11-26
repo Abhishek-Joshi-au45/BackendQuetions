@@ -1,0 +1,7 @@
+CLOUD_NAME = 'aOIFDUloud'
+API_KEY= "liashdbfhb"
+API_SECRET="iufdu"
+
+MONGO_URL = "mongodburl"
+
+AUTH_SECRET_KEY='OISADUI'

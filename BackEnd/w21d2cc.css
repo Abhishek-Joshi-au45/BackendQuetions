@@ -1,0 +1,24 @@
+#main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px black solid;
+}
+.NameImg{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+.Image{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+#SearchBox{
+    border-radius: 50px;
+}
+#heading{
+    background-color: aqua;
+    padding: 30px;
+}

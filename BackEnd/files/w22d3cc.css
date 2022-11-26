@@ -1,0 +1,21 @@
+#maindiv{
+ display: flex;
+ flex-direction: column;
+ text-align: center;
+ justify-content: center;
+ background-color: aqua;
+}
+div{
+    padding: 10px;
+    font-weight: 900;
+}
+body{
+    background-color: yellowgreen;
+}
+.sameClass{
+    background-color: blueviolet;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 350px;
+    margin-right: 350px;
+}
